@@ -1,0 +1,12 @@
+{
+  "name": "pagination",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir --outDir ./docs --base ./",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.7.2"
+  }
+}

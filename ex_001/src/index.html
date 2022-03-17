@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade 1</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../scss/custom.scss" />
+  </head>
+
+  <body class="container-fluid vh-100 vw-100 p-0">
+    <div class="cover"></div>
+    <header class="container-fluid header-bg p-0">
+      <div class="container">
+        <nav class="navbar navbar-expand navbar-dark">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand fw-bold fs-3" href="#">BoringMovies</a>
+            <div class="nav navbar-nav">
+              <span id="btn-play" class="btn-play" onclick="playMusic()">
+                <i class="bi bi-play-fill"></i>
+              </span>
+
+              <button
+                type="submit"
+                class="
+                  me-3
+                  btn btn-link
+                  text-light text-uppercase text-decoration-none
+                "
+                onclick="showGenericForm()"
+              >
+                FORM
+              </button>
+              <button
+                type="button"
+                class="
+                  ms-3
+                  ps-5
+                  pe-5
+                  btn btn-primary
+                  text-uppercase
+                  rounded-pill
+                "
+                onclick="showUserForm()"
+              >
+                Experimente Pagando
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="container-fluid p-0">
+      <audio loop>
+        <source src="../assets/background-music.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="position-fixed vw-100">
+        <video width="100%" height="100%" autoplay muted loop>
+          <source src="../assets/hero-video.webm" type="video/webm" />
+          Falha na reprodução.
+        </video>
+      </div>
+      <div
+        class="
+          position-absolute
+          bottom-0
+          container-fluid
+          d-flex
+          flex-row
+          justify-content-center
+          text-light
+          promo-box
+        "
+      >
+        <section class="d-flex flex-column align-items-center mt-auto mb-4">
+          <h2 class="text-uppercase">As piores séries e filmes</h2>
+          <br />
+          <h1 class="text-uppercase fs-1 fw-bold">Pagando muito caro</h1>
+          <img src="../assets/hero-purpline.webp" alt="Linha roxa" />
+          <p class="mt-1">
+            Após 7 dias, assinaturas a partir de R$999,99/mês* no plano anual.
+          </p>
+          <button
+            type="button"
+            class="
+              ps-5
+              pe-5
+              ms-3
+              mb-2
+              btn-lg btn-primary
+              text-uppercase
+              rounded-pill
+            "
+            onclick="showUserForm()"
+          >
+            Experimente Pagando
+          </button>
+          <span class="text-muted"
+            >Letrinhas muito pequenas que você vai ignorar</span
+          >
+        </section>
+        <!--! Formulário usuário -->
+        <section
+          class="
+            container-sm
+            d-flex
+            flex-column
+            position-absolute
+            bottom-50
+            bg-light
+            w-50
+            rounded
+            shadow
+            p-5
+            form-user
+          "
+        >
+          <button
+            type="button"
+            class="btn-close align-self-end"
+            aria-label="Close"
+            onclick="hideUserForm()"
+          ></button>
+          <div class="container-fluid p-3 m-0">
+            <form class="row g-3">
+              <h1 class="fw-bold text-primary fs-3">Cadastro</h1>
+
+              <div class="col-md-6">
+                <label for="nome" class="form-label text-black">Nome</label>
+                <input
+                  id="nome"
+                  class="form-control"
+                  type="text"
+                  placeholder="Seu nome"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="snome" class="form-label text-black"
+                  >Sobrenome</label
+                >
+                <input
+                  id="snome"
+                  class="form-control"
+                  type="text"
+                  placeholder="Seu sobrenome"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="cpf" class="form-label text-black">CPF</label>
+                <input
+                  id="cpf"
+                  class="form-control"
+                  type="text"
+                  placeholder="000.000.000-00"
+                  pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{11})$"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="rg" class="form-label text-black">RG</label>
+                <input
+                  id="rg"
+                  class="form-control"
+                  type="text"
+                  placeholder="00000000"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="data" class="form-label text-black"
+                  >Data de nascimento</label
+                >
+                <input id="data" class="form-control" type="date" required />
+              </div>
+              <div class="col-md-6">
+                <label for="cidades" class="form-label text-black"
+                  >Cidade</label
+                >
+                <input
+                  id="cidades"
+                  class="form-control"
+                  list="lista"
+                  placeholder="Pesquisar..."
+                />
+                <datalist id="lista">
+                  <!-- <option value="Pelotas"></option>
+                  <option value="Porto Alegre"></option>
+                  <option value="Canoas"></option>
+                  <option value="Caxias"></option>
+                  <option value="Torres"></option> -->
+                </datalist>
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label text-black">E-Mail</label>
+                <input
+                  id="email"
+                  class="form-control"
+                  type="email"
+                  placeholder="endereco@mail.com"
+                  required
+                />
+              </div>
+              <button class="mt-5 border-0 bg-light">
+                <img src="../assets/img-btn.png" alt="Enviard" width="50%" />
+              </button>
+            </form>
+          </div>
+        </section>
+        <!--! Formulário genérico -->
+        <section
+          class="
+            container-sm
+            d-flex
+            flex-column
+            position-absolute
+            bottom-50
+            bg-light
+            w-50
+            rounded
+            shadow
+            p-5
+            form-generic
+          "
+        >
+          <button
+            type="button"
+            class="btn-close align-self-end"
+            aria-label="Close"
+            onclick="hideGenericForm()"
+          ></button>
+          <div class="container-fluid p-3 m-0">
+            <form class="row g-3">
+              <h1 class="fw-bold text-primary fs-3">Formulário</h1>
+
+              <div class="col-md-6">
+                <label for="telefone" class="form-label text-black">Cor</label>
+                <input
+                  id="telefone"
+                  class="form-control form-control-sm"
+                  type="tel"
+                  placeholder="53 99999-9999"
+                  pattern="[0-9]{2} [0-9]{5}-[0-9]{4}"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="cor" class="form-label text-black">URl</label>
+                <input
+                  id="cor"
+                  class="form-control form-control-sm"
+                  type="url"
+                  placeholder="http://site.com"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="number" class="form-label text-black">Número</label>
+                <input
+                  id="number"
+                  class="form-control form-control-sm"
+                  type="number"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="data2" class="form-label text-black">Data</label>
+                <inputgeneric
+                  class="form-control form-control-sm"
+                  type="date"
+                  min="2021-01-01"
+                  max="2021-12-31"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="range" class="form-label text-black">Range</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="5"
+                  id="range"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="cor" class="form-label text-black">Cor</label>
+                <input id="cor" class="form-control" type="color" />
+              </div>
+              <div class="col-md-12 d-grid mt-5">
+                <button class="btn btn-primary btn-lg rounded-pill">
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        getLocation()
+      })
+
+      let music = document.querySelector('audio')
+      let btn = document.querySelector('#btn-play')
+
+      function playMusic() {
+        if (music.paused == true) {
+          btn.innerHTML = '<i class="bi bi-pause-fill"></i>'
+          music.volume = 0.1
+          music.play()
+        } else {
+          music.pause()
+          btn.innerHTML = '<i class="bi bi-play-fill"></i>'
+        }
+      }
+
+      function showUserForm() {
+        let form = document.querySelector('.form-user')
+        let cover = document.querySelector('.cover')
+
+        form.style.visibility = 'visible'
+        cover.style.visibility = 'visible'
+      }
+
+      function hideUserForm() {
+        let form = document.querySelector('.form-user')
+        let cover = document.querySelector('.cover')
+
+        form.style.visibility = 'hidden'
+        cover.style.visibility = 'hidden'
+      }
+
+      function showGenericForm() {
+        let form = document.querySelector('.form-generic')
+        let cover = document.querySelector('.cover')
+
+        form.style.visibility = 'visible'
+        cover.style.visibility = 'visible'
+      }
+
+      function hideGenericForm() {
+        let form = document.querySelector('.form-generic')
+        let cover = document.querySelector('.cover')
+
+        form.style.visibility = 'hidden'
+        cover.style.visibility = 'hidden'
+      }
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(getCities)
+        } else {
+          alert('ERRO: Geolocalização não suportada.')
+        }
+      }
+
+      function getCities(pos) {
+        const x = pos.coords.latitude
+        const y = pos.coords.longitude
+        fetch(
+          `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${x}${y}/nearbyCities?radius=10`,
+          {
+            method: 'GET',
+            headers: {
+              'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+              'x-rapidapi-key':
+                'RAPID_API_KEY',
+            },
+          }
+        ).then((response) =>
+          response
+            .json()
+            .then((data) => ({
+              info: data,
+              status: response.status,
+            }))
+            .then((res) => {
+              let x = res.info.data
+              const country = x[0].countryCode
+              const region = x[0].regionCode
+              fetch(
+                `https://referential.p.rapidapi.com/v1/city?fields=iso_a2%2Cstate_code%2Cstate_hasc%2Ctimezone%2Ctimezone_offset&iso_a2=${country}&state_code=${region}`,
+                {
+                  method: 'GET',
+                  headers: {
+                    'x-rapidapi-host': 'referential.p.rapidapi.com',
+                    'x-rapidapi-key':
+                      'RAPID_API_KEY',
+                  },
+                }
+              ).then((response) =>
+                response
+                  .json()
+                  .then((data) => ({
+                    data: data,
+                    status: response.status,
+                  }))
+                  .then((res) => {
+                    let x = res.data
+                    let list = document.getElementById('lista')
+                    x.forEach((element) => {
+                      var option = document.createElement('option')
+                      option.value = element.value
+                      list.appendChild(option)
+                    })
+                  })
+              )
+            })
+        )
+      }
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+//-------------------------------------- basics
+*,
+*::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --light: hsl(12, 80%, 94%);
+  --light-100: hsl(12, 80%, 84%);
+  --dark: hsl(228, 15%, 13%);
+  --white: hsl(0, 0%, 100%);
+  --asset: #4e1a0e;
+  --asset-hover: hsl(11, 69%, 22%);
+  --max-width: 60vw;
+  --header-width: 5em;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+//--------------------------------------  elements
+body {
+  background: var(--light);
+  height: 100vh;
+  width: var(--max-width);
+  margin-inline: auto;
+}
+header {
+  height: var(--header-width);
+}
+main {
+  height: calc(100% - var(--header-width));
+}
+
+//-------------------------------------- navbar
+.main-nav {
+  width: 100%;
+  list-style: none;
+  justify-content: flex-end;
+  font-size: 1.3em;
+}
+
+.main-nav > li {
+  padding-inline: 1em;
+  padding-block: 0.5em;
+}
+
+.main-nav > li > a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.main-nav a:hover {
+  color: var(--asset-hover);
+}
+
+.main-nav > :last-child {
+  padding-inline-end: 0;
+}
+
+//? seletor '>' sobresceve
+.main-nav .active {
+  font-weight: 700;
+  color: var(--asset);
+}
+
+//-------------------------------------- hero
+.hero-section {
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.hero-content {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-block: 1em;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+
+.hero-content button {
+  display: flex;
+  align-content: center;
+  border: none;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 1.4em;
+  margin-block: 2em;
+  padding-inline: 2em;
+  padding-block: 1em;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background: var(--asset);
+}
+
+.hero-content button:active {
+  background: var(--asset-hover);
+}
+
+.hero-content button svg {
+  height: 1.2em;
+  padding-inline-end: 0.4em;
+  color: var(--white);
+}
+
+.hero-img {
+  margin-block-start: 5em;
+  height: 400px;
+  width: 100%;
+  background: linear-gradient(hsl(336, 72%, 62%) 0%, hsl(20, 91%, 78%) 100%);
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-image: url("../assets/landscape.svg");
+}
+
+#logo {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+#logo::before {
+  content: "";
+  background: url("../assets/logo.png");
+  filter: invert(11%) sepia(23%) saturate(5219%) hue-rotate(349deg) brightness(95%) contrast(95%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#logo::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  bottom: 0;
+  left: -50%;
+  border-radius: 35%;
+  opacity: 30%;
+  background-color: var(--light-100);
+  animation: waves 5s ease-in-out alternate infinite;
+}
+
+@keyframes waves {
+  to {
+    transform: translateY(-50%) rotate(540deg);
+  }
+}

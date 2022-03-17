@@ -1,0 +1,53 @@
+$font-family-sans-serif: 'Poppins', sans-serif;
+$custom-dark: rgb(23, 1, 34);
+$primary: rgb(117, 0, 175);
+$header-bg: rgba(0, 0, 0, 0.3);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background: $custom-dark;
+}
+
+.promo-box {
+  height: 400px;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  span {
+    font-size: 0.7rem;
+  }
+}
+
+.btn-play {
+  font-size: 30px;
+  width: 40px;
+  color: $white;
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: center;
+  :hover {
+    color: $primary;
+  }
+}
+
+.cover {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+  visibility: hidden;
+}
+
+.form-user {
+  z-index: 2;
+  visibility: hidden;
+}
+
+.form-generic {
+  z-index: 2;
+  visibility: hidden;
+}

@@ -1,4 +1,4 @@
-﻿Lista 2 - Banco de Dados II
+﻿-- Lista 2 - Banco de Dados II
 -- Aula - Apresente a data por extenso como nos seguintes exemplos: "Pelotas, 07 de outubro de 2021" e "Quinta-feira, 07 de outubro de 2021".
 SELECT 'Pelotas, ' || EXTRACT(DAY FROM CURRENT_DATE) || ' de ' || TO_CHAR(CURRENT_DATE, 'TMmonth') || ' de ' ||
        EXTRACT(YEAR FROM CURRENT_DATE) AS data_de_hoje;

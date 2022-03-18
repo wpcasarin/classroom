@@ -1,13 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Responsive Grid</title>
   </head>
+
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div class="grid-container">
+      <div class="header" data-theme="dark">
+        <nav class="container">
+          <ul>
+            <li>
+              <a href="./" class="contrast" onclick="event.preventDefault()">
+                <strong>Brand</strong>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <details role="list">
+                <summary aria-haspopup="listbox" role="link" class="contrast">
+                  Contact
+                </summary>
+                <ul role="listbox">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">Linkedin</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details role="list">
+                <summary aria-haspopup="listbox" role="link" class="contrast">
+                  Friends
+                </summary>
+                <ul role="listbox">
+                  <li><a href="#">Some Big Company</a></li>
+                  <li><a href="#">Small Company</a></li>
+                  <li><a href="#">Big Tech Company</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </nav>
+        <header class="container">
+          <hgroup>
+            <h1>Company</h1>
+            <h2>A classic company or blog layout with a sidebar</h2>
+          </hgroup>
+          <p>
+            <a href="#" role="button" onclick="event.preventDefault()">
+              Call to action
+            </a>
+          </p>
+        </header>
+      </div>
+
+      <article class="card left">
+        <div>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()">
+            <img
+              src="https://source.unsplash.com/T5nXYXCf50I/1500x750"
+              alt="Architecture"
+            />
+          </a>
+          <p>
+            <a href="#" onclick="event.preventDefault()">Donec sit amet</a
+            ><br />
+            <small>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra
+            </small>
+          </p>
+        </div>
+      </article>
+
+      <article class="card center">
+        <div>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()">
+            <img
+              src="https://source.unsplash.com/tb4heMa-ZRo/1500x750"
+              alt="Architecture"
+            />
+          </a>
+          <p>
+            <a href="#" onclick="event.preventDefault()">
+              Suspendisse potenti
+            </a>
+            <br />
+            <small>
+              Proin non condimentum tortor. Donec in feugiat sapien.
+            </small>
+          </p>
+        </div>
+      </article>
+
+      <article class="card right">
+        <div>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()">
+            <img
+              src="https://source.unsplash.com/Ru3Ap8TNcsk/1500x750"
+              alt="Architecture"
+            />
+          </a>
+          <p>
+            <a href="#" onclick="event.preventDefault()">
+              Nullam lobortis placerat aliquam
+            </a>
+            <br />
+            <small>
+              Maecenas vitae nibh blandit dolor commodo egestas vel eget neque.
+              Praesent semper justo orci, vel imperdiet mi auctor in.
+            </small>
+          </p>
+        </div>
+      </article>
+
+      <footer class="container footer">
+        <small
+          >Built with <a href="https://picocss.com">Pico</a> •
+          <a href="https://github.com/picocss/examples/tree/master/company/"
+            >Source code</a
+          ></small
+        >
+      </footer>
+    </div>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

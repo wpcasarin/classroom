@@ -1,0 +1,58 @@
+header {
+  padding: 3rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card > div > p > a {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.header {
+  background-color: #394046;
+  background-image: url('https://source.unsplash.com/DNQ-M93tHmA/3000x1000');
+  background-position: center;
+  background-size: cover;
+}
+
+.header {
+  grid-area: hadr;
+}
+.left {
+  grid-area: left;
+}
+.center {
+  grid-area: cntr;
+}
+.right {
+  grid-area: rigt;
+}
+.footer {
+  grid-area: fotr;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas:
+    'hadr hadr hadr hadr hadr hadr'
+    'left cntr cntr cntr cntr rigt'
+    'fotr fotr fotr fotr fotr fotr';
+}
+
+@media (max-width: 992px) {
+  .grid-container {
+    grid-template-areas:
+      'hadr hadr hadr hadr hadr hadr'
+      'left left left left left left'
+      'cntr cntr cntr cntr cntr cntr'
+      'rigt rigt rigt rigt rigt rigt'
+      'fotr fotr fotr fotr fotr fotr';
+  }
+}

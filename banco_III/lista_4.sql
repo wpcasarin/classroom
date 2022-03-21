@@ -27,13 +27,12 @@ CREATE TRIGGER create_log
 EXECUTE PROCEDURE create_log();
 
 -- Ao deletar uma venda, apague também os itens relacionados a essa venda.
--- TODO não funcionou!
 CREATE OR REPLACE FUNCTION delete_venda_item() RETURNS TRIGGER AS
 $$
 BEGIN
   DELETE FROM contas_receber WHERE contas_receber.codigo_vendas = old.codigo;
   DELETE FROM venda_itens WHERE venda_itens.codvenda = old.codigo;
-  RETURN new;
+  RETURN old;
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -44,11 +43,10 @@ CREATE TRIGGER delete_venda_item
 EXECUTE PROCEDURE delete_venda_item();
 
 -- A partir da venda de um item, atualize a quantidade em estoque deste item.
--- TODO não funcionou!
 CREATE OR REPLACE FUNCTION update_estoque() RETURNS TRIGGER AS
 $$
 BEGIN
-  UPDATE itens SET estoque = (estoque - old.quantidade) WHERE itens.codigo = old.codigo;
+  UPDATE itens SET estoque = (itens.estoque - new.quantidade) WHERE itens.codigo = new.codigo;
   RETURN new;
 END;
 $$ LANGUAGE 'plpgsql';
@@ -56,7 +54,7 @@ $$ LANGUAGE 'plpgsql';
 CREATE TRIGGER update_estoque
   AFTER INSERT
   ON venda_itens
-  FOR EACH STATEMENT
+  FOR EACH ROW
 EXECUTE PROCEDURE update_estoque();
 
 -- A partir da quantidade comprada de um determinado item, sua quantidade em estoque seja atualizada
